@@ -1,0 +1,91 @@
+
+<div class ="form-area">
+    <h3>Shipping & Billing Address</h3>
+    <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input
+          type="text"
+          class="form-control"
+          name="street"
+          [(ngModel)]="form.street"/>
+      </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input
+          type="text"
+          class="form-control"
+          name="city"
+          [(ngModel)]="form.city"/>
+    </div>
+    <div class="form-group">
+        <label for="state">State</label>
+        <input
+          type="text"
+          class="form-control"
+          name="state"
+          [(ngModel)]="form.state"/>
+    </div>
+    <div class="form-group">
+        <label for="zipCode">ZIP code</label>
+        <input
+          type="text"
+          class="form-control"
+          name="zipCode"
+          [(ngModel)]="form.zipCode"/>
+    </div>
+</form>
+</div>
+
+<div class ="form-area">
+    <h3>Payment</h3>
+    <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+<div class="form-group">
+    <label for="cardNum">Card Number</label>
+    <input
+      type="text"
+      class="form-control"
+      name="cardNum"
+      [(ngModel)]="form.cardNum"/>
+  </div>
+  <div class="form-group">
+    <label for="expiry">Expiry Date</label>
+    <input
+      type="text"
+      class="form-control"
+      name="expiry"
+      [(ngModel)]="form.expiry"/>
+  </div>
+  <div class="form-group">
+    <label for="CVV">CVV</label>
+    <input
+      type="text"
+      class="form-control"
+      name="CVV"
+      [(ngModel)]="form.CVV"/>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block">Submit Order</button>
+  </div>
+
+  <div class="alert alert-warning" *ngIf="f.submitted && isRegisterFailed">
+    Customer Registration Failed!<br />
+  </div>
+</form>
+
+<div class="alert alert-success" *ngIf="isSuccessful">
+  Your Customer Registration was successful!
+</div>
